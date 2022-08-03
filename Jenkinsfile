@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t tolulope/ci-cd-test:latest .'
+        sh 'docker build -t tolulope/ci-cd-test2:latest .'
       }
     }
     stage('Login') {
@@ -23,7 +23,7 @@ pipeline {
     stage('Push to Heroku registry') {
       steps {
         sh '''
-          docker tag tolulope/ci-cd-test:latest registry.heroku.com/$APP_NAME/web
+          docker tag tolulope/ci-cd-test2:latest registry.heroku.com/$APP_NAME/web
           docker push registry.heroku.com/$APP_NAME/web
         '''
       }
